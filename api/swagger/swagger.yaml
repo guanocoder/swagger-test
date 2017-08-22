@@ -45,6 +45,26 @@ paths:
       responses:
         200:
           description: "Success"
+  /todo/{id}:
+    get:
+      description: "Retrieve a single todo item by id"
+      operationId: "FindTodoById"
+      produces:
+      - "application/json"
+      parameters:
+      - name: id
+        in: path
+        description: "ID of the todo item to get"
+        required: true
+        type: integer
+        format: int64
+      responses:
+        200:
+          description: "Success"
+          schema:
+            $ref: "#/definitions/Todo"
+      x-swagger-router-controller:
+        "FindTodoById"          
   /swagger:
     x-swagger-pipe: swagger_raw
 # complex objects have schema definitions
